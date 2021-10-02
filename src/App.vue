@@ -4,6 +4,7 @@
     <v-main>
       <book-list :books="books" @remove-book="deleteBook"></book-list>
       <add-button @click="showAddBookScreen"></add-button>
+      <add-book @add-to-list="addBook"></add-book>
     </v-main>
   </v-app>
 </template>
@@ -12,11 +13,13 @@
 import TitleBar from "@/components/TitleBar";
 import BookList from "@/components/BookList";
 import AddButton from "@/components/AddButton";
+import AddBook from "@/components/AddBook";
 
 export default {
   name: 'App',
 
   components: {
+    AddBook,
     AddButton,
     BookList,
     TitleBar,

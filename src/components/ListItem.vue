@@ -11,6 +11,7 @@
         <v-card-actions>
           <v-btn flat color="blue">Edit</v-btn>
           <v-btn flat color="red" @click="deleteBook">Delete</v-btn>
+          <book-details :book="book"></book-details>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -18,8 +19,10 @@
 </template>
 
 <script>
+import BookDetails from "@/components/BookDetails";
 export default {
   name: "ListItem",
+  components: {BookDetails},
   props: {
     book: {
       type: Object,
