@@ -40,7 +40,7 @@
         <v-btn
             @click="addToList"
         >
-          Add Book
+          Submit
         </v-btn>
       </v-row>
     </v-container>
@@ -49,7 +49,7 @@
 
 <script>
 export default {
-  name: "AddBook",
+  name: "BookForm",
   data() {
 
   },
@@ -57,8 +57,10 @@ export default {
     book: {type: Object, default: () => ({id: Math.floor(Math.random() * 10000), title: '', genre: '', read: false})},
   },
   methods: {
-    addToList() {
-    this.$emit('add-to-list', this.book);
+    addToList(e) {
+      e.preventDefault();
+      this.$emit('add-to-list', this.book);
+      this.book = {type: Object, default: () => ({id: Math.floor(Math.random() * 10000), title: '', genre: '', read: false})};
     }
   }
 

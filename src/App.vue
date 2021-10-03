@@ -2,9 +2,9 @@
   <v-app>
     <title-bar title="Book List"></title-bar>
     <v-main>
-      <book-list :books="books" @remove-book="deleteBook"></book-list>
+      <book-list v-show="showList" :books="books" @remove-book="deleteBook"></book-list>
+      <book-form v-show="showAddBook" @add-to-list="addBook"></book-form>
       <add-button @click="showAddBookScreen"></add-button>
-      <add-book @add-to-list="addBook"></add-book>
     </v-main>
   </v-app>
 </template>
@@ -13,25 +13,25 @@
 import TitleBar from "@/components/TitleBar";
 import BookList from "@/components/BookList";
 import AddButton from "@/components/AddButton";
-import AddBook from "@/components/AddBook";
+import BookForm from "@/components/BookForm";
 
 export default {
   name: 'App',
 
   components: {
-    AddBook,
+    BookForm,
     AddButton,
     BookList,
     TitleBar,
   },
 
   data: () => ({
-      books: [
-        {id: 1, title: "Harry Potter", genre: "Fantasy", read: true},
-        {id: 2, title: "Catcher in the Rye", genre: "Young Adult", read: true},
-        {id: 3, title: "The Shining", genre: "Horror", read: false},
-      ],
-      showAddModal: false,
+    books: [],
+    showBookForm: false,
+    titleText: 'Book List',
+    showList: true,
+    showAddBook: false,
+    showEditBook: false,
   }),
 
   methods: {
@@ -42,9 +42,9 @@ export default {
       console.log("deleting book")
       this.books.splice(this.books.indexOf(book), 1);
     },
-    showAddBookScreen() {
+    showAddBookForm() {
 
-    },
+    }
   }
 };
 </script>
