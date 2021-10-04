@@ -53,9 +53,11 @@ export default {
   data() {
 
   },
+
   props: {
     book: {type: Object, default: () => ({id: Math.floor(Math.random() * 10000), title: '', genre: '', read: false})},
   },
+
   methods: {
     addToList(e) {
       e.preventDefault();
