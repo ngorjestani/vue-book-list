@@ -5,6 +5,7 @@
       fixed
       bottom
       right
+      @click="handleClick"
   >
     <v-icon>mdi-plus</v-icon>
   </v-btn>
@@ -12,7 +13,13 @@
 
 <script>
 export default {
-  name: "AddButton"
+  name: "AddButton",
+  methods: {
+    handleClick() {
+      console.log('clicked');
+      this.$emit('add-book-clicked');
+    },
+  },
 }
 </script>
 

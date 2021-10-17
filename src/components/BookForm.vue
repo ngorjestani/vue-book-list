@@ -51,7 +51,7 @@
 export default {
   name: "BookForm",
   data() {
-
+    return {};
   },
 
   props: {

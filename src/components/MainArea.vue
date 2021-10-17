@@ -2,9 +2,9 @@
   <div>
     <title-bar title="Book List"></title-bar>
     <v-main>
-      <book-form @add-to-list="addBook"></book-form>
-      <book-list :books="books" @remove-book="deleteBook"></book-list>
-      <add-button></add-button>
+      <book-form v-show="showAddBookForm" @add-to-list="addBook"></book-form>
+      <book-list v-show="!showAddBookForm" :books="books" @remove-book="deleteBook"></book-list>
+      <add-button @add-book-clicked="handleAddBookClick"></add-button>
     </v-main>
   </div>
 </template>
@@ -31,6 +31,7 @@ export default {
 
   data: () => ({
     books: [],
+    showAddBookForm: false,
   }),
 
   computed: {
@@ -40,9 +41,14 @@ export default {
   methods: {
     addBook(book) {
       this.books.push(book);
+      this.showAddBookForm = false;
     },
     deleteBook(book) {
       this.books.splice(this.books.indexOf(book), 1);
+    },
+    handleAddBookClick() {
+      console.log('button clicked');
+      this.showAddBookForm = true;
     },
   },
 
