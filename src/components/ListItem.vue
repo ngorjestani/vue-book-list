@@ -20,12 +20,14 @@
 
 <script>
 import BookDetails from "@/components/BookDetails";
+import Book from "../models/Book";
+
 export default {
   name: "ListItem",
   components: {BookDetails},
   props: {
     book: {
-      type: Object,
+      type: Book,
       required: true,
     },
   },

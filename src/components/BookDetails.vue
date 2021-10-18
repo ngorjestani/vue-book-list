@@ -21,9 +21,7 @@
         </v-card-title>
 
         <v-card-text>
-          <h5>Book: {{book.title}}</h5>
-          <h5>Genre: {{book.genre}}</h5>
-          <h5>Read: {{book.read}}</h5>
+          {{book.getDetails()}}
         </v-card-text>
 
         <v-divider></v-divider>
@@ -44,10 +42,12 @@
 </template>
 
 <script>
+import Book from "../models/Book";
+
 export default {
   name: "BookDetails",
   props: {
-    book: Object,
+    book: Book,
   },
   data() {
     return {

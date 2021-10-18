@@ -8,11 +8,13 @@
 
 <script>
 import ListItem from "@/components/ListItem";
+import ItemCollection from "../models/ItemCollection";
+
 export default {
   name: "BookList",
   components: {ListItem},
   props: {
-    books: Array,
+    books: ItemCollection,
   },
 }
 </script>

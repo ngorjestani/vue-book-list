@@ -5,6 +5,7 @@
       <book-form v-show="showAddBookForm" @add-to-list="addBook"></book-form>
       <book-list v-show="!showAddBookForm" :books="books" @remove-book="deleteBook"></book-list>
       <add-button @add-book-clicked="handleAddBookClick"></add-button>
+      <p>Read books: {{books.readBooks().length}}</p>
     </v-main>
   </div>
 </template>
@@ -14,6 +15,7 @@ import TitleBar from "@/components/TitleBar";
 import BookList from "@/components/BookList";
 import AddButton from "@/components/AddButton";
 import BookForm from "@/components/BookForm";
+import ItemCollection from "../models/ItemCollection";
 
 export default {
   name: "MainArea",
@@ -30,7 +32,7 @@ export default {
   },
 
   data: () => ({
-    books: [],
+    books: new ItemCollection(),
     showAddBookForm: false,
   }),
 
